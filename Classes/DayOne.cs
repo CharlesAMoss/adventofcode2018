@@ -10,12 +10,7 @@ namespace AdventOfCode
         // Part One
         public static int CalibratedFrequency(List<int> input)
         {
-            int freq = 0;
-            foreach (var i in input)
-            {
-                freq += i;
-            }
-            return freq;
+            return input.Sum();
         }
 
         // Part Two
