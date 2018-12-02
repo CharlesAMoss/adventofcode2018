@@ -15,7 +15,7 @@ namespace AdventOfCode
         static void Main(string[] args)
         {
             string dataPath = @"./Data/DayONE_input.txt";
-            var linesRead = File.ReadLines(dataPath);
+            var linesRead = GetInput(dataPath);
           
             var testFreq = new List<int>();
             foreach (var l in linesRead)
@@ -23,8 +23,8 @@ namespace AdventOfCode
                 testFreq.Add(Int32.Parse(l));
             }
 
-            // var testFreq = new List<int> (new int[] { +1, +1, +1 });
-            int output = DayOne.CalibratedFrequency(testFreq);
+            var list = new List<int>();
+            int output = DayOne.FirstRepeatFrequency(testFreq, 0, list);
             Console.WriteLine(output);
         }
     }
