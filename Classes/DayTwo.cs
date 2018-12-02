@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AdventOfCode
 {
-    // https://adventofcode.com/2018/day/1
+    // https://adventofcode.com/2018/day/2
     public class DayTwo 
     {
         //Part One
@@ -17,6 +17,7 @@ namespace AdventOfCode
             return twos * threes;;
         }
 
+        //Part Two
         public static string ScanIds(List<string> inputs)
         {    
             int i = 0;
