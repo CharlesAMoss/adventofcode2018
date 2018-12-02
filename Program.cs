@@ -1,31 +1,35 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
+using System.Linq;
 
 
 namespace AdventOfCode
 {
     class Program
     {
-        static IEnumerable<string> GetInput(string inputPath)
+        static List<int> GetInput(string inputPath)
         {
-            return File.ReadLines(inputPath.ToString());
+            return File.ReadAllLines(inputPath).Select(int.Parse).ToList();
         }
 
         static void Main(string[] args)
         {
-            string dataPath = @"./Data/DayONE_input.txt";
-            var linesRead = GetInput(dataPath);
-          
-            var testFreq = new List<int>();
-            foreach (var l in linesRead)
-            {
-                testFreq.Add(Int32.Parse(l));
-            }
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
-            var list = new List<int>();
-            int output = DayOne.FirstRepeatFrequency(testFreq, 0, list);
-            Console.WriteLine(output);
+            List<int> testFreq = GetInput(@"./Data/DayONE_input.txt");
+            
+            int output1 = DayOne.CalibratedFrequency(testFreq);
+            int output2 = DayOne.FirstRepeatFrequency(testFreq);
+            
+            Console.WriteLine($"part one : {output1}\npart two : {output2}");
+            
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            Console.WriteLine($"RunTime > {ts.Hours}:{ts.Minutes}:{ts.Seconds}:{ts.Milliseconds / 10}");
         }
     }
 }
