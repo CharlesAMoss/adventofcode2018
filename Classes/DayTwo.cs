@@ -8,7 +8,7 @@ namespace AdventOfCode
     public class DayTwo 
     {
         //Part One
-        public static int checksum(List<string> inputs)
+        public static int Checksum(List<string> inputs)
         {
             
             int twos =   inputs.Count(c => c.GroupBy(g => g).Any(a => a.Count() == 2));
@@ -17,6 +17,19 @@ namespace AdventOfCode
             return twos * threes;;
         }
 
-        
+        public static string ScanIds(List<string> inputs)
+        {    
+            int i = 0;
+            foreach (var input in inputs)
+            {
+                var found = inputs.Select(s => s.Remove(i, 1)).GroupBy(g => g).FirstOrDefault(f => f.Count() > 1);
+                if (found != null)
+                {
+                    return found.First();
+                } 
+                i++; 
+            } 
+            return "none";  
+        }   
     }
 }
