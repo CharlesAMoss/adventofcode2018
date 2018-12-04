@@ -33,12 +33,15 @@ namespace AdventOfCode
             // int output1 = DayOne.CalibratedFrequency(testFreq);
             // int output2 = DayOne.FirstRepeatFrequency(testFreq);
 
-            List<string> inputData = GetStrListInput(@"./Data/DayTWO_input.txt");
-            var output1 = DayTwo.Checksum(inputData);
-            var output2 = DayTwo.ScanIds(inputData);
+            //List<string> inputData = GetStrListInput(@"./Data/DayTWO_input.txt");
+            //var output1 = DayTwo.Checksum(inputData);
+            //var output2 = DayTwo.ScanIds(inputData);
             
+            List<string> inputData = GetStrListInput(@"./Data/DayTHREE_input.txt");
+            var output1 = DayThree.FabricClaims(inputData);
+
             //string output1 = "nope";
-            //string output2 = "also nope";
+            string output2 = "also nope";
 
             Console.WriteLine($"part one : {output1}\npart two : {output2}");
             Console.WriteLine("******************************************");
